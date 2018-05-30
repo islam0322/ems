@@ -1,0 +1,332 @@
+<?xml version="1.0"?>  
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+ <hibernate-mapping>
+    <class name="org.fyp.ems.questionSettingModule.EmsDbModel.Users"  table="users">
+    	<id name="id" type="int" column="ID">
+            <generator class="native"/> 
+        </id>
+  
+        <property name="username" type="string">
+            <column name="USERNAME"/>
+        </property>
+        <property name="password" type="string">
+            <column name="PASSWORD"/>
+        </property>
+        <property name="role" type="int">
+            <column name="ROLE"/>
+        </property>
+        <property name="status" type="string">
+            <column name="STATUS"/>
+        </property>
+        <property name="salt" type="string">
+            <column name="SALT"/>
+        </property>
+        <property name="name" type="string">
+            <column name="NAME"/>
+        </property>
+        <property name="joining_date" type="date">
+            <column name="JOINING_DATE"/>
+        </property>
+        <property name="parent_id" type="string">
+            <column name="PARENT_ID"/>
+        </property>
+       
+    </class>
+   
+    <class name="org.fyp.ems.questionSettingModule.EmsDbModel.Subjects"  table="subjects">
+        <id name="subject_id" type="int" column="SUBJECT_ID">
+            <generator class="native"/> 
+        </id>
+        <property name="subject_name" type="string">
+            <column name="SUBJECT_NAME"/>
+        </property>
+       
+    </class>
+        <class name="org.fyp.ems.questionSettingModule.EmsDbModel.Options"  table="options">
+        <id name="id" type="int" column="ID">
+            <generator class="native"/> 
+        </id>
+        <property name="question_id" type="int">
+            <column name="QUESTION_ID"/>
+        </property>
+         <property name="option_statment" type="string">
+            <column name="OPTION_STATMENT"/>
+        </property>
+         <property name="image_status" type="string">
+            <column name="IMAGE_STATUS"/>
+        </property>
+         <property name="correct_status" type="string">
+            <column name="CORRECT_STATUS"/>
+        </property>
+       
+    </class>
+    <class name="org.fyp.ems.questionSettingModule.EmsDbModel.Questions"  table="questions">
+        <id name="id" type="int" column="ID"> 
+        <generator class="native"/>   
+        </id>
+        <property name="statement" type="string">
+            <column name="STATEMENT"/>
+        </property>
+        <property name="statement_image" type="string">
+            <column name="STATEMENT_IMAGE"/>
+        </property>
+        <property name="comment" type="string">
+            <column name="COMMENT"/>
+        </property>
+        <property name="subject" type="string">
+            <column name="SUBJECT"/>
+        </property>
+        <property name="topic" type="string">
+            <column name="TOPIC"/>
+        </property>
+        <property name="sub_Topic" type="string">
+            <column name="SUB_TOPIC"/>
+        </property>
+        <property name="estimated_time" type="int">
+            <column name="ESTIMATED_TIME"/>
+        </property>
+        <property name="difficulty_level" type="int">
+            <column name="DIFFICULTY_LEVEL"/>
+        </property>
+        <property name="auther" type="string">
+            <column name="AUTHER"/>
+        </property>
+        <property name="creation_date" type="date">
+            <column name="CREATION_DATE"/>
+        </property>
+        <property name="status" type="string">
+            <column name="STATUS"/>
+        </property>
+        <property name="marks" type="int">
+            <column name="MARKS"/>
+        </property>
+         <property name="editor_id" type="string">
+            <column name="EDITOR_ID"/>
+        </property>
+         <property name="edited_date" type="date">
+            <column name="EDITED_DATE"/>
+        </property>
+    </class>
+    
+    <class name="org.fyp.ems.questionSettingModule.EmsDbModel.DirtyPool"  table="dirtypool">
+    	<id name="id" type="int" column="id">
+    	<generator class="native"/>   
+        </id>
+    	<property name="pending_date" type="date">
+            <column name="PENDING_DATE"/>
+        </property>
+        <property name="question_id" type="int">
+            <column name="QUESTION_ID"/>
+        </property>
+        
+    </class>
+    <class name="org.fyp.ems.questionSettingModule.EmsDbModel.CleanPool"  table="cleanpool">
+    	<id name="id" type="int" column="id">
+    	<generator class="native"/>   
+        </id>
+    	<property name="approval_date" type="date">
+            <column name="APPROVAL_DATE"/>
+        </property>
+        <property name="approver_id" type="string">
+            <column name="APPROVER_ID"/>
+        </property>
+        <property name="approver_comment" type="string">
+            <column name="APPROVER_COMMENT"/>
+        </property>
+        <property name="question_id" type="int">
+            <column name="QUESTION_ID"/>
+        </property>
+        
+    </class>
+     <class name="org.fyp.ems.questionSettingModule.EmsDbModel.SavedQuestions"  table="saved_questions">
+    	<id name="id" type="int" column="id"> 
+    	<generator class="native"/>  
+        </id>
+    	<property name="saved_date" type="date">
+            <column name="SAVED_DATE"/>
+        </property>
+         <property name="question_id" type="int">
+            <column name="QUESTION_ID"/>
+        </property>
+        
+    </class>
+    <class name="org.fyp.ems.questionSettingModule.EmsDbModel.RejectedQuestion"  table="rejected_questions">
+    	<id name="id" type="int" column="id"> 
+    	<generator class="native"/>  
+        </id>
+    	<property name="rejected_date" type="date">
+            <column name="REJECTED_DATE"/>
+        </property>
+        <property name="approver_id" type="string">
+            <column name="APPROVER_ID"/>
+        </property>
+        <property name="approver_comment" type="string">
+            <column name="APPROVER_COMMENT"/>
+        </property>
+        <property name="status" type="string">
+            <column name="STATUS"/>
+        </property>
+         <property name="question_id" type="int">
+            <column name="QUESTION_ID"/>
+        </property>
+        
+    </class>
+        <class name="org.fyp.ems.questionSettingModule.EmsDbModel.Images"  table="images">
+    	<id name="id" type="int" column="id"> 
+    	<generator class="native"/>  
+        </id>
+    	<property name="image" >
+            <column name="IMAGE"/>
+        </property>
+        <property name="option_id" type="int">
+            <column name="OPTION_ID"/>
+        </property>
+         <property name="question_id" type="int">
+            <column name="QUESTION_ID"/>
+        </property>
+        
+    </class>
+    <class name="org.fyp.ems.questionSettingModule.EmsDbModel.Roles"  table="roles">
+    	<id name="id" type="int" column="id"> 
+    	<generator class="native"/>  
+        </id>
+    	<property name="name" type="string">
+            <column name="NAME"/>
+        </property>
+        <property name="created_date" type="date">
+            <column name="CREATED_DATE"/>
+        </property>
+       
+    </class>
+   	<class name="org.fyp.ems.questionSettingModule.EmsDbModel.Student" table="STUDENTS">
+        <id name="student_id" type="string" column="STUDENT_ID">
+            
+        </id>
+        <property name="password">
+            <column name="PASSWORD"/>
+        </property>
+       
+    </class>
+    
+       <class name="org.fyp.ems.questionSettingModule.EmsDbModel.StudentBatches" table="students_batches">
+        <id name = "batchId" type = "int" column = "batch_id">
+         <generator class="native"/>
+      </id>
+        
+      <property name = "studentId" type="string" column = "student_id" />
+        
+    </class>
+    
+     <class name="org.fyp.ems.questionSettingModule.EmsDbModel.TestInfo" table="Test_info">
+        <id name="testId" type="int" column="test_id">
+        </id>
+        
+         <property name="testMarks" type="double">
+            <column name="test_marks"/>
+        </property>
+        
+         <property name="totalQuestions" type="int">
+            <column name="total_questions"/>
+        </property>
+        
+         <property name="TestMaxTime" type="int">
+            <column name="test_max_time"/>
+        </property>
+        
+         <property name="testLiveTime" type="date">
+            <column name="test_live_time"/>
+        </property>
+        
+         <property name="testStatus">
+            <column name="test_status"/>
+        </property>
+        <property name="name">
+            <column name="test_name"/>
+        </property>
+        
+        <property name = "batchId" column = "assign_batch_id" />
+       
+    </class>
+    
+    <class name="org.fyp.ems.questionSettingModule.EmsDbModel.TestQuestions" table="test_questions">
+    
+        <id name ="tq_id" type="int" column="tq_id">
+        <generator class="assigned"/></id>
+        
+        <property name="test_id" type="int" column="test_id" />
+       
+       <property name = "question_id" type="int" column = "question_id" />
+        
+    	</class>
+    	
+    	
+     <class name="org.fyp.ems.questionSettingModule.EmsDbModel.QuestionsResult" table="QUESTIONS_RESULT">
+        
+       	<id name="qrId" type="int" column="qr_id">
+       	<generator class="native"/>
+       	</id>
+       	
+    	<property name = "testId"  column = "test_id"  />
+    	<property name="studentId" type="string" column="student_id"></property>
+    	<property name = "qId"  column = "q_id"  />
+      
+    	 <property name="selectedOption">
+            <column name="selected_option"/>
+        </property>
+        
+         <property name="correctOption">
+            <column name="correct_option"/>
+        </property>
+        
+         <property name="questionMarks" type="double">
+            <column name="question_marks"/>
+        </property>
+        
+         <property name="obtainMarks" type="double">
+            <column name="obtain_marks"/>
+        </property>
+       
+         </class>
+    	
+    <class name="org.fyp.ems.questionSettingModule.EmsDbModel.TestResult" table="test_result">
+        
+        <id name="testResultId" column="test_result_id" >
+           <generator class="native"/>
+        </id>
+       <property type="string" name="studentId">
+            <column name="student_id"/>
+        </property>
+        
+        <property name="totalMarks" type="double">
+            <column name="total_marks"/>
+        </property>
+        <property name="unattempted" type="int">
+            <column name="unattempted"/>
+        </property>
+        <property name="corrected" type="int">
+            <column name="corrected"/>
+        </property>
+        
+        <property name="marksObtained" type="double">
+            <column name="marks_obtained"/>
+        </property>
+        
+         <property name = "testId" column = "test_id" />
+        
+    	</class>	
+    	<class name="org.fyp.ems.questionSettingModule.EmsDbModel.Batches" table="batches">
+        
+        <id name="id" column="id" >
+           <generator class="native"/>
+        </id>
+       <property type="string" name="name">
+            <column name="name"/>
+        </property>
+        
+    	</class>	
+    	
+    	
+   
+</hibernate-mapping>
